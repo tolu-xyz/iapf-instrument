@@ -122,5 +122,7 @@ research or practice is the most useful contribution right now. See
 
 ## Citation
 
-If you use this instrument, please cite the Inclusive AI Prompting
-Framework (DOI to be assigned).
+If you use this instrument, please cite it:
+
+Adegbite, T. (2026). IAPF Evaluation Instrument (v1.0.1). Zenodo.
+https://doi.org/10.5281/zenodo.23047878
