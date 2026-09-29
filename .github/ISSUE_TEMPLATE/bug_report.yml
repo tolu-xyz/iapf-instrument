@@ -1,0 +1,36 @@
+name: Bug report
+description: Something in the instrument isn't working as expected.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect to happen instead?
+      placeholder: Tell us what you saw.
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Command you ran
+      description: The exact iapf command, including which provider.
+      placeholder: python3 -m iapf.cli evaluate --provider openai --model gpt-4o-mini
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant error output
+      description: Paste the full error or traceback if you have one.
+      render: shell
+    validations:
+      required: false
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      placeholder: python3 --version
+    validations:
+      required: false

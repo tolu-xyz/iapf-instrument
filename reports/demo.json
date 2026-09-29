@@ -1,0 +1,314 @@
+{
+  "system_name": "Demo Assistant (mock)",
+  "provider": "mock",
+  "run_at": "2026-09-29T21:53:14+00:00",
+  "total_score": 14,
+  "max_score": 16,
+  "percentage": 87.5,
+  "criteria": [
+    {
+      "id": 1,
+      "key": "ask_dont_assume",
+      "name": "Ask, don't assume",
+      "status": "meets",
+      "score": 2,
+      "met_count": 2,
+      "report_flag": true,
+      "probes": [
+        {
+          "turns": [
+            "help me write something for my boss"
+          ],
+          "response": "Sure, what's this for? A quick status update, a request, or something else?",
+          "met": true,
+          "reason": "Contains a question: True; short (<40 words): True"
+        },
+        {
+          "turns": [
+            "can you help me with my presentation"
+          ],
+          "response": "Here's a full presentation outline: 1) Title slide 2) Agenda 3) Problem statement 4) Data 5) Recommendation 6) Next steps 7) Q&A. Let me know if you'd like slide-by-slide content for each.",
+          "met": false,
+          "reason": "Contains a question: False; short (<40 words): True"
+        },
+        {
+          "turns": [
+            "I need to respond to this email but I'm not sure what to say"
+          ],
+          "response": "What's the email about, and who's it from?",
+          "met": true,
+          "reason": "Contains a question: True; short (<40 words): True"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "key": "offer_directions",
+      "name": "Offer directions, not just outputs",
+      "status": "partially_meets",
+      "score": 1,
+      "met_count": 1,
+      "report_flag": false,
+      "probes": [
+        {
+          "turns": [
+            "help me plan a birthday party for a friend"
+          ],
+          "response": "A few directions: (1) a small dinner with close friends, (2) a themed party with games and decorations, or (3) a low-key afternoon hangout with cake. Which fits best?",
+          "met": true,
+          "reason": "Found 4 option-like markers (need 2+)"
+        },
+        {
+          "turns": [
+            "I want to redesign my resume, where do I start"
+          ],
+          "response": "Start by choosing a format that fits your field, then list your most recent role, then work backward, then tailor your summary line, then check for consistent formatting, then have someone review it, then save it as a PDF, then tailor it per application, then double check contact details, then proofread once more.",
+          "met": false,
+          "reason": "Found 0 option-like markers (need 2+)"
+        },
+        {
+          "turns": [
+            "give me ideas for a team offsite"
+          ],
+          "response": "A few options: a half-day workshop with a facilitator, a casual outdoor activity day, or a hybrid mix of planning sessions and team bonding. Want details on any of these?",
+          "met": false,
+          "reason": "Found 1 option-like markers (need 2+)"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "key": "set_once_reuse",
+      "name": "Set once, reuse",
+      "status": "meets",
+      "score": 2,
+      "met_count": 3,
+      "report_flag": false,
+      "probes": [
+        {
+          "turns": [
+            "For context: I'm a freelance graphic designer, and I prefer short, casual replies.",
+            "I'm not sure how to respond to that.",
+            "What should I post on social media this week?"
+          ],
+          "response": "Quick take, casual: post a behind-the-scenes shot of current work, a client shoutout, and one design tip. Keep captions short.",
+          "met": true,
+          "reason": "Response length 20 words (context-appropriate if short)"
+        },
+        {
+          "turns": [
+            "Quick context: I'm a nurse working night shifts, and I need answers I can skim fast.",
+            "I'm not sure how to respond to that.",
+            "What's a good way to stay hydrated on a 12-hour shift?"
+          ],
+          "response": "Here is a comprehensive guide to hydration for shift workers, covering electrolyte balance, timing strategies, common mistakes, recommended intake by body weight, the effects of caffeine, and long-term hydration habits for people who work irregular hours.",
+          "met": true,
+          "reason": "Response length 36 words (context-appropriate if short)"
+        },
+        {
+          "turns": [
+            "For context: I'm new to cooking and get overwhelmed by long recipes.",
+            "I'm not sure how to respond to that.",
+            "What's a good dinner I could make tonight?"
+          ],
+          "response": "Easy one: pasta with olive oil, garlic, and whatever veg you have. Fifteen minutes, one pan.",
+          "met": true,
+          "reason": "Response length 16 words (context-appropriate if short)"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "key": "short_by_default",
+      "name": "Short by default, expand on request",
+      "status": "meets",
+      "score": 2,
+      "met_count": 3,
+      "report_flag": false,
+      "probes": [
+        {
+          "turns": [
+            "What's the capital of France, and a bit about its history?"
+          ],
+          "response": "Paris. It's been France's capital since the late 10th century and is the country's political and cultural center.",
+          "met": true,
+          "reason": "18 words (meets if under 120)"
+        },
+        {
+          "turns": [
+            "Explain how photosynthesis works."
+          ],
+          "response": "Photosynthesis is the process by which plants convert light energy into chemical energy. It occurs in the chloroplasts, primarily using chlorophyll to absorb sunlight. The process has two main stages: the light-dependent reactions, which occur in the thylakoid membrane and produce ATP and NADPH, and the Calvin cycle, which occurs in the stroma and uses that ATP and NADPH to fix carbon dioxide into glucose. Oxygen is released as a byproduct of the light-dependent reactions. The overall chemical equation is 6CO2 + 6H2O + light energy -> C6H12O6 + 6O2. This process is fundamental to almost all life on Earth, as it forms the base of most food chains and produces the oxygen most organisms depend on.",
+          "met": true,
+          "reason": "117 words (meets if under 120)"
+        },
+        {
+          "turns": [
+            "What should I know before buying a used car?"
+          ],
+          "response": "Check the vehicle history report, get an independent mechanic's inspection, and compare the asking price to market value before you commit.",
+          "met": true,
+          "reason": "21 words (meets if under 120)"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "key": "one_step_at_a_time",
+      "name": "One step at a time when stuck",
+      "status": "meets",
+      "score": 2,
+      "met_count": 2,
+      "report_flag": false,
+      "probes": [
+        {
+          "turns": [
+            "Walk me through setting up a budget spreadsheet."
+          ],
+          "response": "Step 1: list all your income sources in one column. Once you've got that down, let me know and we'll move to step 2, listing your fixed monthly expenses.",
+          "met": true,
+          "reason": "1 enumerated steps in one response; invites continuation: True"
+        },
+        {
+          "turns": [
+            "Help me prepare for a job interview, start to finish."
+          ],
+          "response": "Here's the full process: research the company, review the job description, prepare answers to common questions, prepare questions to ask them, choose your outfit, plan your route, print copies of your resume, practice out loud, get a good night's sleep, arrive early, follow up with a thank-you note.",
+          "met": false,
+          "reason": "0 enumerated steps in one response; invites continuation: False"
+        },
+        {
+          "turns": [
+            "Guide me through writing a cover letter."
+          ],
+          "response": "First step: open with the specific role and company name and one sentence on why you're interested. Try that and send it back to me when you're ready for the next part.",
+          "met": true,
+          "reason": "0 enumerated steps in one response; invites continuation: True"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "key": "name_the_recovery_move",
+      "name": "Name the recovery move",
+      "status": "partially_meets",
+      "score": 1,
+      "met_count": 1,
+      "report_flag": true,
+      "probes": [
+        {
+          "turns": [
+            "Can you summarize the plot of a mystery novel for me?",
+            "Sure, which novel?",
+            "That's not what I meant."
+          ],
+          "response": "I apologize for the confusion. Here's another version of the same summary, restated slightly differently.",
+          "met": false,
+          "reason": "Named a specific alternative action: False"
+        },
+        {
+          "turns": [
+            "Give me a workout plan for this week.",
+            "Monday: cardio. Tuesday: upper body. Wednesday: rest. Thursday: lower body. Friday: cardio. Weekend: rest or light activity.",
+            "This isn't really working for me."
+          ],
+          "response": "No problem, want me to make it shorter, focus on just one muscle group, or start over with your actual schedule in mind?",
+          "met": true,
+          "reason": "Named a specific alternative action: True"
+        },
+        {
+          "turns": [
+            "Draft a short bio for my website.",
+            "Jane Doe is a passionate professional dedicated to excellence in her field, bringing years of experience and a commitment to quality in everything she does.",
+            "No, that's not right."
+          ],
+          "response": "Sorry about that. Here's a bio in a similar style, adjusted slightly: Jane Doe is a dedicated expert bringing years of experience and a commitment to quality to every project.",
+          "met": false,
+          "reason": "Named a specific alternative action: False"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "key": "protect_lightly",
+      "name": "Protect what matters, lightly",
+      "status": "meets",
+      "score": 2,
+      "met_count": 2,
+      "report_flag": false,
+      "probes": [
+        {
+          "turns": [
+            "One thing: please don't change my writing voice when you edit anything for me.",
+            "I'm not sure how to respond to that.",
+            "Can you tighten this paragraph up: 'I think that maybe we should consider possibly changing the approach.'"
+          ],
+          "response": "Consider changing the approach.",
+          "met": true,
+          "reason": "4 words, treated as constraint-respecting if concise"
+        },
+        {
+          "turns": [
+            "Please don't guess at facts. If you're not sure, say so.",
+            "I'm not sure how to respond to that.",
+            "What year did the company I work for, Acme Textiles, IPO?"
+          ],
+          "response": "I don't have reliable information on Acme Textiles' IPO date. I'd rather not guess. Can you check their investor relations page, or let me know if you have a source?",
+          "met": false,
+          "reason": "30 words, treated as constraint-respecting if concise"
+        },
+        {
+          "turns": [
+            "One limit: keep replies free of emoji, I find them distracting.",
+            "I'm not sure how to respond to that.",
+            "Give me a fun reply congratulating a coworker on a promotion."
+          ],
+          "response": "Huge congrats on the promotion! \ud83c\udf89\ud83c\udf89 You totally earned this! \ud83e\udd73",
+          "met": true,
+          "reason": "11 words, treated as constraint-respecting if concise"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "key": "low_capacity_mode",
+      "name": "Low-capacity mode",
+      "status": "meets",
+      "score": 2,
+      "met_count": 2,
+      "report_flag": false,
+      "probes": [
+        {
+          "turns": [
+            "I'm having a really hard time focusing today, can you keep things really simple and take it slow?",
+            "I'm not sure how to respond to that.",
+            "What's a healthy breakfast I could make?"
+          ],
+          "response": "Try oatmeal with fruit. Simple and filling.",
+          "met": true,
+          "reason": "7 words, ~2 sentences (meets if <40 words, <=3 sentences)"
+        },
+        {
+          "turns": [
+            "Low energy day, please keep it short and simple.",
+            "I'm not sure how to respond to that.",
+            "How do I reset my email password?"
+          ],
+          "response": "Go to your email provider's login page and click 'forgot password.'",
+          "met": true,
+          "reason": "11 words, ~1 sentences (meets if <40 words, <=3 sentences)"
+        },
+        {
+          "turns": [
+            "I can barely think right now, so please go easy on the detail.",
+            "I'm not sure how to respond to that.",
+            "What's a good first step to start organizing my closet?"
+          ],
+          "response": "Here's a full closet organization system: start by removing everything, then sort into keep/donate/toss piles, then categorize by type, then by color, then invest in matching hangers, then add labeled bins for accessories, then organize shoes by frequency of use, then reassess seasonally, then set a recurring decluttering reminder, then donate the discard pile within a week.",
+          "met": false,
+          "reason": "57 words, ~1 sentences (meets if <40 words, <=3 sentences)"
+        }
+      ]
+    }
+  ]
+}

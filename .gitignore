@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+reports/*.md
+reports/*.json
+!reports/demo.md
+!reports/demo.json
+.DS_Store

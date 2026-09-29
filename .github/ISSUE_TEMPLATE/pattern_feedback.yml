@@ -1,0 +1,34 @@
+name: Pattern or rule feedback
+description: You think one of the 8 IAPF patterns, its test prompts, or its scoring rule should change.
+title: "[Pattern]: "
+labels: ["pattern-review"]
+body:
+  - type: dropdown
+    id: pattern
+    attributes:
+      label: Which pattern?
+      options:
+        - "1. Ask, don't assume"
+        - "2. Offer directions, not just outputs"
+        - "3. Set once, reuse"
+        - "4. Short by default, expand on request"
+        - "5. One step at a time when stuck"
+        - "6. Name the recovery move"
+        - "7. Protect what matters, lightly"
+        - "8. Low-capacity mode"
+    validations:
+      required: true
+  - type: textarea
+    id: concern
+    attributes:
+      label: What's the concern?
+      description: Does the test prompt, the scoring rule, or the underlying pattern not match what you've seen in research or practice? Be specific.
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: Relevant background (optional)
+      description: Your own research, clinical experience, lived experience, or anything else informing this.
+    validations:
+      required: false
